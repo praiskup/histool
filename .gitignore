@@ -1,0 +1,15 @@
+.deps
+.dirstamp
+ChangeLog
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+compile
+config.h*
+config.log
+config.status
+depcomp
+install-sh
+missing
+stamp-h1

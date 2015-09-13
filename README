@@ -1,0 +1,13 @@
+Tool to manipulate history files
+================================
+
+Currently there is only one function implemented -- history file cleaning.
+Program reads the _old_ bash-like history (from stdin) and constructs _new_ one
+(on stdout).  It just reads the old file bottom-up way, remembering all (unique)
+line occurrences and it only exports firstly seen lines.
+
+This filtering method guarantees that searching through cleaned history (by
+subsequent 'CTRL+R' hits) is not affected as all remaining lines are still in
+correct time-creation order.
+
+Usage: `$ histool < ~/.bash_history > ~/.bash_history_filtered`

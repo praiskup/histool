@@ -1,0 +1,5 @@
+== version 1.0 ==
+
+Initial release, only base cleanup for "bash-like" history files
+implemented.
+
