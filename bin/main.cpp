@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <map>
+// TODO: move (conditionally) to unordered_set
+#include <set>
 #include <list>
 
 #include <boost/foreach.hpp>
@@ -8,34 +9,34 @@
 using namespace std;
 
 typedef list<string>            StringList;
-typedef map<string, bool>       BlackMap;
+typedef set<string>             BlackList;
 
 int main()
 {
-    // complete list of lines (reversed)
+    // full (reversed) history file
     StringList history;
 
     // mark seen lines here
-    BlackMap blackmap;
+    BlackList blacklist;
 
-    // read the input line/by/line
+    // read the input line-by-line
     string line;
     while (getline(cin, line)) {
         history.push_front(line);
     }
 
-    // remove duplicite lines
+    // go through history bottom-top way
     for (StringList::iterator it = history.begin();
          it != history.end(); )
     {
-        if (!blackmap[*it]) {
-            // this line was seen firstly!
-            blackmap[*it] = true;
+        if (blacklist.find(*it) == blacklist.end()) {
+            // this line has been seen firstly!
+            blacklist.insert(*it);
             it++;
             continue;
         }
 
-        // remove this line, it was there already
+        // remove this line, it's already in history
         it = history.erase(it);
     }
 
