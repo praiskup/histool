@@ -11,3 +11,11 @@ subsequent 'CTRL+R' hits) is not affected as all remaining lines are still in
 correct time-creation order.
 
 Usage: `$ histool < ~/.bash_history > ~/.bash_history_filtered`
+
+Build Requirements
+------------------
+
+autoconf (bootstrap)
+automake (bootstrap)
+gcc-c++
+boost-devel
