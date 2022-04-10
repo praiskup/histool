@@ -9,7 +9,7 @@
 using namespace std;
 
 typedef list<string>            StringList;
-typedef set<string>             BlackList;
+typedef set<string>             DenyList;
 
 int main()
 {
@@ -17,7 +17,7 @@ int main()
     StringList history;
 
     // mark seen lines here
-    BlackList blacklist;
+    DenyList denylist;
 
     // read the input line-by-line
     string line;
@@ -29,9 +29,9 @@ int main()
     for (StringList::iterator it = history.begin();
          it != history.end(); )
     {
-        if (blacklist.find(*it) == blacklist.end()) {
+        if (denylist.find(*it) == denylist.end()) {
             // this line has been seen firstly!
-            blacklist.insert(*it);
+            denylist.insert(*it);
             it++;
             continue;
         }
